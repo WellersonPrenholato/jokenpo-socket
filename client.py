@@ -2,6 +2,7 @@
 import socket
 import random
 
+# Identificação do HOST E PORT do client
 HOST = '127.0.0.1'
 PORT = 5000
 
@@ -16,12 +17,14 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((HOST, PORT)) # Parênteses duplo pq o connect tem apenas um parâmetro.
 
 while True:
-
+    # O usuário escolhe qual o tipo de jogada vai ser feita, sendo 1 - Palpite aleatório e 2 o usuário informa um palpite. Caso ele informe 0(zero) a conexão é encerrada.
     opcao1 = int(input("\n* Escolha uma opção:\n 1- Palpite aleatório\n 2- Informar um palpite\n 0- Para encerrar.\n -> Opcao: "))
 
+    # Caso o usuário escolha a opcao 1, então o palpite será aleatório. Essa aleatoriedade é dada de acordo com a lista opcoesJogadas.
     if (opcao1 == 1):
         mensagemEnvioClient = random.choice(opcoesJogadas)
 
+    # Caso o usuário escolha a opcao 2, então um menu é aberto para escolhar o palpite.
     if (opcao1 == 2):
         opcao2 = int(input("\n* Ecolha o palpite:\n 1- Pedra\n 2- Papel\n 3- Tesoura\n -> Opcao: "))
 
@@ -32,6 +35,7 @@ while True:
         elif (opcao2 == 3):
             mensagemEnvioClient = 'Tesoura'
     
+    # Caso o usuário informe 0(zero) no momento de escolher a jogada, então a conexão é encerrada. 
     if (opcao1 == 0):
         print("\nConexão encerrada!\n")
         # Serve para fechar a conexão entre as duas aplicações.
