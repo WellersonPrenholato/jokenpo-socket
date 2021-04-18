@@ -2,6 +2,7 @@
 import socket
 import random
 
+# Identificação do HOST E PORT do servidor
 HOST = 'localhost'
 PORT = 5000
 addr = (HOST, PORT)
