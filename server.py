@@ -16,9 +16,8 @@ print("Aguardando conexão de um cliente:")
 
 conn, ender = sock.accept() # Conexão e endereço
 
-# print(f"Conectado em {ender}")
-
 print('Connectado com', ender)
+
 while True:
     data = conn.recv(1024) # 1024 Byter serão recebidos do client
     # print("Resposta do cliente:", data.decode())
