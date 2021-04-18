@@ -6,9 +6,12 @@ PORT = 5000
 
 opcoesJogadas = ['Pedra', 'Papel', 'Tesoura']
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # SOCK_STREAM identificação do TCP
+# O mecanismo de Socket foi criado para receber a conexão, onde na função passamos 2 argumentos, AF_INET que declara a família do protocolo; 
+# Se fosse um envio via Bluetooth por exemplo, seria: AF_BLUETOOTH, e o SOCKET_STREAM, indica que será TCP/IP.
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-sock.connect((HOST, PORT)) # Parênteses duplo pq o connect tem apenas um parâmetro (Realiza conexão com o servidor)
+# Realiza a conexão com o servidor
+sock.connect((HOST, PORT)) # Parênteses duplo pq o connect tem apenas um parâmetro.
 
 while True:
 
@@ -29,14 +32,16 @@ while True:
     
     if (opcao1 == 0):
         print("\nConexão encerrada!\n")
+        # Serve para fechar a conexão entre as duas aplicações.
         sock.close()
         break
-
+    
+    # Utilizado para fazer o envio de dados para o servidor.
     sock.sendall(str.encode(mensagemEnvioClient)) # Enviar mensagem para o servidor
 
     print("\n-> Palpite enviado pelo cliente: ", mensagemEnvioClient)
 
-    # Resposta do servidor
+    # Aguarda o retorno do servidor, um dado enviado pela rede de até 1024 Bytes, a função ‘recv’ possui somente 1 argumento que é o tamanho do Buffer.
     data = sock.recv(1024) # Bytes
 
     print('\n*** Resultado final do jogo: \n', data.decode().upper())
