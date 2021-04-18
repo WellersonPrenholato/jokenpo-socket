@@ -10,13 +10,13 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # SOCK_STREAM identific
 
 sock.connect((HOST, PORT)) # Parênteses duplo pq o connect tem apenas um parâmetro (Realiza conexão com o servidor)
 
-opcao1 = int(input("-> Escolha uma opção:\n 1- Palpite aleatório\n 2- Informar um palpite "))
+opcao1 = int(input("\n* Escolha uma opção:\n 1- Palpite aleatório\n 2- Informar um palpite\n -> Opcao: "))
 
 if (opcao1 == 1):
     mensagemEnvioClient = random.choice(opcoesJogadas)
 
 if (opcao1 == 2):
-    opcao2 = int(input("- Ecolha a jogada:\n 1- Pedra\n 2- Papel\n 3- Tesoura\n -> Opcao: "))
+    opcao2 = int(input("\n* Ecolha o palpite:\n 1- Pedra\n 2- Papel\n 3- Tesoura\n -> Opcao: "))
 
     if (opcao2 == 1):
         mensagemEnvioClient = 'Pedra'
@@ -29,7 +29,7 @@ if (opcao1 == 2):
 # mensagemEnvioClient = random.choice(opcoesJogadas)
 sock.sendall(str.encode(mensagemEnvioClient)) # Enviar mensagem para o servidor
 
-print("Palpite enviado pelo cliente: ", mensagemEnvioClient)
+print("\nPalpite enviado pelo cliente: ", mensagemEnvioClient)
 
 # Resposta do servidor
 data = sock.recv(1024) # Bytes
