@@ -1,9 +1,11 @@
+# Bibliotecas
 import socket
 import random
 
 HOST = '127.0.0.1'
 PORT = 5000
 
+# Lista com as possíveis jogadas que podem ser escolhidas pelo cliente.
 opcoesJogadas = ['Pedra', 'Papel', 'Tesoura']
 
 # O mecanismo de Socket foi criado para receber a conexão, onde na função passamos 2 argumentos, AF_INET que declara a família do protocolo; 
@@ -38,12 +40,13 @@ while True:
     
     # Utilizado para fazer o envio de dados para o servidor.
     sock.sendall(str.encode(mensagemEnvioClient)) # Enviar mensagem para o servidor
-
-    print("\n-> Palpite enviado pelo cliente: ", mensagemEnvioClient)
+    
+    print("\n-> Palpite enviado pelo cliente: ", mensagemEnvioClient) # Apresenta o palpite escolhido pelo cliente
 
     # Aguarda o retorno do servidor, um dado enviado pela rede de até 1024 Bytes, a função ‘recv’ possui somente 1 argumento que é o tamanho do Buffer.
     data = sock.recv(1024) # Bytes
 
+    # Decodifica a mensagem recebida pelo servidor, coloca todas as letras em maiúsculo e por último essa mensagem é apresentada.
     print('\n*** Resultado final do jogo: \n', data.decode().upper())
 
     
