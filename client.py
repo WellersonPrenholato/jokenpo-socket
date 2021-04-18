@@ -12,7 +12,7 @@ sock.connect((HOST, PORT)) # Parênteses duplo pq o connect tem apenas um parâm
 
 while True:
 
-    opcao1 = int(input("\n* Escolha uma opção:\n 1- Palpite aleatório\n 2- Informar um palpite\n 0 - Para encerrar.\n -> Opcao: "))
+    opcao1 = int(input("\n* Escolha uma opção:\n 1- Palpite aleatório\n 2- Informar um palpite\n 0- Para encerrar.\n -> Opcao: "))
 
     if (opcao1 == 1):
         mensagemEnvioClient = random.choice(opcoesJogadas)
@@ -26,19 +26,20 @@ while True:
             mensagemEnvioClient = 'Papel'
         elif (opcao2 == 3):
             mensagemEnvioClient = 'Tesoura'
+    
+    if (opcao1 == 0):
+        print("\nConexão encerrada!\n")
+        sock.close()
+        break
 
     sock.sendall(str.encode(mensagemEnvioClient)) # Enviar mensagem para o servidor
 
-    print("\nPalpite enviado pelo cliente: ", mensagemEnvioClient)
+    print("\n-> Palpite enviado pelo cliente: ", mensagemEnvioClient)
 
     # Resposta do servidor
     data = sock.recv(1024) # Bytes
 
-    print('\nResultado final do jogo: \n', data.decode().upper())
+    print('\n*** Resultado final do jogo: \n', data.decode().upper())
 
-
-    # opcao3 = int(input("\n0 - Para encerrar.\n"))
-    if (opcao1 == 0): 
-        sock.close()
-        break
+    
 
