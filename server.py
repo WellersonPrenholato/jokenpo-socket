@@ -1,3 +1,4 @@
+# Bibliotecas
 import socket
 import random
 
@@ -31,7 +32,7 @@ while True:
 
     # print("Resposta do cliente:", data.decode())
 
-    if not data: # Quanto não tiver mais nada lá dentro
+    if not data: # Quando não tiver mais nada dentro do data a conexão é encerrada
         print("\nConexão encerrada!\n")
 
         conn.close() # Serve para fechar a conexão entre as aplicações.
@@ -55,7 +56,7 @@ while True:
         ganhador = 'Empate'
 
     # String de retorno para o cliente
-    result = '- Cliente: '+ str(palpiteClient) + '\n - Servidor: ' + str(palpiteServ) + '\n=> GANHADOR: ' + str(ganhador) + '\n'
+    result = '- Cliente: '+ str(palpiteClient) + '\n - Servidor: ' + str(palpiteServ) + '\n=> GANHADOR: ' + str(ganhador) + '\n' # Concatenação dos resultados, sendo eles apresentados para o cliente
 
     # Utilizado para enviar o resultodo para o cliente.
     conn.sendall(bytes(str(result), 'utf8'))
