@@ -17,6 +17,7 @@ print("Aguardando conexão de um cliente:")
 conn, ender = sock.accept() # Conexão e endereço
 
 print('Connectado com', ender)
+print("\nOs palpites do servidor são ALEATÓRIOS!\n")
 
 while True:
     data = conn.recv(1024) # 1024 Byter serão recebidos do client
