@@ -16,29 +16,29 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Realiza a conexão com o servidor
 sock.connect((HOST, PORT)) # Parênteses duplo pq o connect tem apenas um parâmetro.
 
-while True:
-    # O usuário escolhe qual o tipo de jogada vai ser feita, sendo 1 - Palpite aleatório e 2 o usuário informa um palpite. Caso ele informe 0(zero) a conexão é encerrada.
+while True: # O cliente pode realizar n comunicações com o servidor, ou até essa ligação ser encerrada.
+    # O usuário escolhe o tipo de jogada que será feita, sendo 1 - Palpite aleatório e 2 o usuário informa um palpite, por fim caso ele informe 0(zero) a conexão é encerrada.
     opcao1 = int(input("\n* Escolha uma opção:\n 1- Palpite aleatório\n 2- Informar um palpite\n 0- Para encerrar.\n -> Opcao: "))
 
     # Caso o usuário escolha a opcao 1, então o palpite será aleatório. Essa aleatoriedade é dada de acordo com a lista opcoesJogadas.
     if (opcao1 == 1):
-        mensagemEnvioClient = random.choice(opcoesJogadas)
+        mensagemEnvioClient = random.choice(opcoesJogadas) # Randomização da jogada de acordo com a lista opcoesJogadas.
 
     # Caso o usuário escolha a opcao 2, então um menu é aberto para escolhar o palpite.
     if (opcao1 == 2):
         opcao2 = int(input("\n* Ecolha o palpite:\n 1- Pedra\n 2- Papel\n 3- Tesoura\n -> Opcao: "))
 
         if (opcao2 == 1):
-            mensagemEnvioClient = 'Pedra'
+            mensagemEnvioClient = 'Pedra' # Caso o usuário escolha a opção 1, então a jogada será Pedra.
         elif (opcao2 == 2):
-            mensagemEnvioClient = 'Papel'
+            mensagemEnvioClient = 'Papel' # Caso o usuário escolha a opção 1, então a jogada será Papel.
         elif (opcao2 == 3):
-            mensagemEnvioClient = 'Tesoura'
+            mensagemEnvioClient = 'Tesoura' # Caso o usuário escolha a opção 1, então a jogada será Tesoura.
     
     # Caso o usuário informe 0(zero) no momento de escolher a jogada, então a conexão é encerrada. 
     if (opcao1 == 0):
         print("\nConexão encerrada!\n")
-        # Serve para fechar a conexão entre as duas aplicações.
+        # Utilizado para fechar a conexão entre as duas aplicações.
         sock.close()
         break
     
