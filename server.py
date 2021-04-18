@@ -31,7 +31,7 @@ while True:
     palpiteClient = str(data.decode())
     palpiteServ = random.choice(opcoesJogadas)
 
-    print("O Servidor respondeu:", palpiteServ)
+    print("* O Servidor respondeu:", palpiteServ)
 
     # palpiteClient = str(palpiteClient.lower())
 
