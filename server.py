@@ -27,7 +27,7 @@ conn, ender = sock.accept() # Conexão e endereço
 print('Connectado com', ender) # Apresentação do endereço do cliente, composto de nome do host e a porta que foram conectados.
 print("\nOs palpites do servidor são ALEATÓRIOS!\n")
 
-while True:
+while True: # O servidor fica liberado por tempo indeterminado ou até a conexão ser encerrada.
     # Aguarda um dado enviado pela rede de até 1024 Bytes, a função ‘recv’ possui somente 1 argumento que é o tamanho do Buffer.
     data = conn.recv(1024) # 1024 Byter serão recebidos do client
 
