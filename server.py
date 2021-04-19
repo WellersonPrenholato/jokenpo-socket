@@ -6,8 +6,8 @@ import socket
 import random
 
 # Identificação do HOST E PORT do servidor
-HOST = 'localhost'
-PORT = 5000
+HOST = 'localhost' # Identifica o nome do servidor
+PORT = 5000 # Identifica a porta do servidor
 addr = (HOST, PORT)
 
 # Lista com as possíveis jogadas que podem ser escolhidas pelo servidor.
