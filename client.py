@@ -15,6 +15,8 @@ opcoesJogadas = ['Pedra', 'Papel', 'Tesoura']
 # O mecanismo de Socket foi criado para receber a conexão, onde na função passamos 2 argumentos, AF_INET que declara a família do protocolo; 
 # Se fosse um envio via Bluetooth por exemplo, seria: AF_BLUETOOTH, e o SOCKET_STREAM, indica que será TCP/IP.
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# A constante AF_INET faz parte de um grupo denominado famílias de endereços, ou address families, que constitui exatamente o primeiro parâmetro opcional do construtor socket. 
+# A AF_INET abrange os endereços do tipo IPv4, antigo padrão da Internet.
 
 # Realiza a conexão com o servidor
 sock.connect((HOST, PORT)) # Parênteses duplo pq o connect tem apenas um parâmetro.
