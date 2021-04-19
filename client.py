@@ -6,8 +6,8 @@ import socket
 import random
 
 # Identificação do HOST E PORT do client
-HOST = '127.0.0.1'
-PORT = 5000
+HOST = '127.0.0.1' # Identifica o nome do client
+PORT = 5000 # Identifica a porta do client para comunicar com o servidor
 
 # Lista com as possíveis jogadas que podem ser escolhidas pelo cliente.
 opcoesJogadas = ['Pedra', 'Papel', 'Tesoura']
@@ -57,6 +57,3 @@ while True: # O cliente pode realizar n comunicações com o servidor, ou até e
 
     # Decodifica a mensagem recebida pelo servidor, coloca todas as letras em maiúsculo e por último essa mensagem é apresentada.
     print('\n*** Resultado final do jogo: \n', data.decode().upper())
-
-    
-
