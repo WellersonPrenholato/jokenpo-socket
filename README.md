@@ -17,3 +17,7 @@
 ⚔ O jogo foi desenvolvido utilizando a comunicação cliente x servidor, empregando o protocolo de comunicação TCP. 
 
 > Essa atividade foi desenvolvida utilizando a linguagem de programação **Python**. 🐍
+
+### 📚 [Descrição](https://github.com/WellersonPrenholato/jokenpo-socket-python/blob/main/Descricao.pdf)
+
+### 📖 [Manual de Uso](https://github.com/WellersonPrenholato/jokenpo-socket-python/blob/main/Manual%20de%20Uso.pdf)
